@@ -1,6 +1,6 @@
 class Solution {
     public int minimumSum(int n, int k) {
-        List<Integer> li=new ArrayList<>();
+        Set<Integer> li=new HashSet<>();
         int i=1,s=0;
         while(li.size()<n){
             if(!li.contains(k-i)){
