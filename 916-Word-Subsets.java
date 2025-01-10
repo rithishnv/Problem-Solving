@@ -6,9 +6,7 @@ class Solution {
             int[] a=new int[26];
             for(char j:i.toCharArray()){
                 a[j-'a']++;
-            }
-            for(int k=0;k<26;k++){
-                b[k]=Math.max(b[k],a[k]);
+                b[j-'a']=Math.max(b[j-'a'],a[j-'a']);
             }
         }
         for(String i:words1){
