@@ -1,26 +1,21 @@
 class Solution {
-    HashSet<String> set=new HashSet<>();
-    boolean[] v;
-    void check(int ind,String tiles,String s){
-        if(s.length()==tiles.length()){
-            return;
-        }
-        for(int i=0;i<tiles.length();i++){
-            StringBuilder sb=new StringBuilder(s);
-            if(v[i])
+    int[] arr;
+    int check(int[] arr){
+       int cnt=0;
+        for(int i=0;i<26;i++){
+            if(arr[i]==0)
             continue;
-            v[i]=true;
-            sb.append(tiles.charAt(i));
-            set.add(sb.toString());
-            check(ind,tiles,sb.toString());
-            sb.deleteCharAt(sb.length()-1);
-            v[i]=false;
+            arr[i]--;
+            cnt++;
+            cnt+=check(arr);
+            arr[i]++;
         }
-        return;
+        return cnt;
     }
     public int numTilePossibilities(String tiles) {
-        v=new boolean[tiles.length()];
-        check(0,tiles,"");
-        return set.size();
+        arr=new int[26];
+        for(char i:tiles.toCharArray())
+        arr[i-'A']++;
+        return check(arr);
     }
 }
