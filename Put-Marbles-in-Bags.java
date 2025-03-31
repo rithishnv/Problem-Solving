@@ -7,9 +7,8 @@ class Solution {
         }
         long sum=0;
         Arrays.sort(arr);
-        n--;
         for(int i=0;i<k-1;i++){
-            sum+=arr[n-i-1]-arr[i];
+            sum+=arr[n-i-2]-arr[i];
         }
         return sum;
     }
