@@ -12,8 +12,9 @@ class Solution {
                 if(sum==target){
                     return sum;
                 }
-                if(Math.abs(target-sum)<min){
-                min=Math.abs(target-sum);
+                int y=Math.abs(target-sum);
+                if(y<min){
+                min=y;
                 res=sum;
                 }
                 if(sum>target){
