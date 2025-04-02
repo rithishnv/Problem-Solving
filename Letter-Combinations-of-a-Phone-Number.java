@@ -13,6 +13,8 @@ class Solution {
         return;
     }
     public List<String> letterCombinations(String digits) {
+        if(digits.length()==0)
+        return li;
         Map<Character,String[]> map=new HashMap<>();
         map.put('2',new String[]{\a\,\b\,\c\});
         map.put('3',new String[]{\d\,\e\,\f\});
@@ -22,8 +24,6 @@ class Solution {
         map.put('7',new String[]{\p\,\q\,\r\,\s\});
         map.put('8',new String[]{\t\,\u\,\v\});
         map.put('9',new String[]{\w\,\x\,\y\,\z\});
-        if(digits.length()==0)
-        return li;
         com(digits,map,0,new StringBuilder());
         return li;
     }
