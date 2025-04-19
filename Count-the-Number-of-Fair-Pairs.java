@@ -7,11 +7,15 @@ class Solution {
     }
     public long count(int[] nums,int tar){
         long res=0;
-        for(int i=0,j=nums.length-1;i<j;i++){
-            while(i<j && nums[i]+nums[j]>tar){
+        int i=0,j=nums.length-1;
+        while(i<j){
+            if(nums[i]+nums[j]>tar){
                 j--;
             }
+            else{
             res+=j-i;
+            i++;
+            }
         }
         return res;
     }
