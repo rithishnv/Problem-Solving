@@ -6,6 +6,6 @@ class Solution {
         min=Math.min(min,s);
         max=Math.max(max,s);
        }
-       return Math.max(0,(int)((upper-max)-(lower-min)+1));
+       return (int)Math.max(0,(upper-max)-(lower-min)+1);
     }
 }
