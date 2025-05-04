@@ -5,12 +5,9 @@ class Solution {
         for(int[] i:dominoes){
             Arrays.sort(i);
             String s=Arrays.toString(i);
+            int t=map.getOrDefault(s,0);
+            res+=t;
             map.put(s,map.getOrDefault(s,0)+1);
-        }
-         for(int[] i:dominoes){
-            String s=Arrays.toString(i);
-            res+=map.get(s)-1;
-            map.put(s,map.get(s)-1);
         }
         return res;
     }
