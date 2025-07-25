@@ -1,14 +1,17 @@
 class Solution {
     public int maxSum(int[] nums) {
-        Set<Integer> set=new HashSet<>();
+        boolean[] v=new boolean[101];
         int n=nums.length;
-        Arrays.sort(nums);
-        int s=0;
-        for(int i=n-1;i>-1;i--){
-            if(set.add(nums[i]) && nums[i]>0){
-                s+=nums[i];
+        int max=Integer.MIN_VALUE;
+        int cnt=0,s=0;
+        for(int i:nums){
+            max=Math.max(max,i);
+            if(i>0 && !v[i]){
+                v[i]=true;
+                s+=i;
+                cnt++;
             }
         }
-        return (nums[n-1]<=0)?nums[n-1]:s;
+        return (cnt==0)?max:s;
     }
 }
