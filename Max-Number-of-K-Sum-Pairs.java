@@ -4,12 +4,13 @@ class Solution {
         int i=0,j=nums.length-1;
         int res=0;
         while(i<j){
-            if((nums[i]+nums[j])==k){
+            int sum=nums[i]+nums[j];
+            if(sum==k){
                 i++;
                 j--;
                 res++;
             }
-            else if(nums[i]+nums[j]<k){
+            else if(sum<k){
                 i++;
             }
             else{
