@@ -1,20 +1,10 @@
 class Solution {
     public int minCost(String colors, int[] neededTime) {
         int res=0;
-        // PriorityQueue<Integer> pq=new PriorityQueue<>();
-        int s=0,max=0;
-        for(int i=0;i<colors.length()-1;i++){
-            int j=i+1;
-            s=neededTime[i];
-            max=neededTime[i];
-            while(j<colors.length()&&colors.charAt(i)==colors.charAt(j)){
-                s+=neededTime[j];
-                max=Math.max(neededTime[j],max);
-                j++;
-            }
-            if(i!=j){
-            res+=(s-max);
-            i=j-1;
+        for(int i=1;i<colors.length();i++){
+            if(colors.charAt(i)==colors.charAt(i-1)){
+                res+=Math.min(neededTime[i],neededTime[i-1]);
+                neededTime[i]=Math.max(neededTime[i],neededTime[i-1]);
             }
         }
         return res;
