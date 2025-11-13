@@ -7,10 +7,14 @@ class Solution {
             if(s.charAt(i)=='1'){
                 one++;
             }
-            else if(i>0 && s.charAt(i)<s.charAt(i-1)){
-                    res+=one;
+            else{
+                i++;
+                while(i<n && s.charAt(i)=='0'){
+                    i++;
+                }
+                i--;
+                res+=one;
             }
-                
         }
         return res;
     }
