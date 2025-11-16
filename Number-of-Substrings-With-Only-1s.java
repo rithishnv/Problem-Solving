@@ -1,13 +1,17 @@
 class Solution {
     public int numSub(String s) {
-        long mod=1000000007;
+        long c=0;
         long res=0;
-        for(long i=0,j=0;i<=s.length();i++){
-            if(i==s.length() || s.charAt((int)i)=='0'){
-                res=(res+(i-j)*(i-j+1)/2)%mod;
-                j=i+1;
+        for(char i:s.toCharArray()){
+            if(i=='1'){
+                c++;
+            }
+            else{
+                res+=c*(c+1)/2;
+                c=0;
             }
         }
-        return (int)res;
+        res+=c*(c+1)/2;
+        return (int)(res%1000000007);
     }
 }
