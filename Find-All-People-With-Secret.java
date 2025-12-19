@@ -1,7 +1,7 @@
 1
 2class Solution {
 3    public List<Integer> findAllPeople(int n, int[][] meetings, int firstPerson) {
-4        int[] groups = new int[100000];
+4        int[] groups = new int[n];
 5        List<Integer> result = new ArrayList<>();
 6        List<Integer> temp = new ArrayList<>();
 7
