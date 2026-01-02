@@ -4,7 +4,7 @@
 4        int[] arr=new int[100001];
 5        for(int i:nums){
 6            arr[i]++;
-7            if(arr[i]==n/2)
+7            if(arr[i]>1)
 8            return i;
 9        }
 10        return 0;
