@@ -1,36 +1,31 @@
 1class Solution {
-2    public double separateSquares(int[][] sq) {
-3        double area = 0.0;
-4        int n=sq.length;
-5        double start = (double)sq[0][1];
-6        double end = (double)sq[0][1];
-7        for(int i=0; i<n; i++) {
-8            area+=(double)sq[i][2]*sq[i][2];
-9            start = Math.min(start,(double)sq[i][1]);
-10            end = Math.max(end,(double)sq[i][1] + sq[i][2]);
+2    public double separateSquares(int[][] squares) {
+3        double totalArea = 0;
+4        double low = 1e18, high = -1e18;
+5
+6        for (int[] s : squares) {
+7            double y = s[1], l = s[2];
+8            totalArea += l * l;
+9            low = Math.min(low, y);
+10            high = Math.max(high, y + l);
 11        }
-12        double reqarea = area/2;
-13        double farea=0;
-14        for(int k = 0; k < 100; k++) {
-15            double y=(start+end)/2;
-16            double belowarea=0.0;
-17            for(int i = 0; i < n; i++) {
-18                double bottom = sq[i][1];
-19                double height = sq[i][2];
-20                double top = bottom + height;
-21                if (y >= top) {
-22                    belowarea += (double)height * height;
-23                } else if (y > bottom) {
-24                    belowarea += (y - bottom) * height;
-25                }
-26            }
-27            if(belowarea<reqarea) {
-28                start = y;
-29            }else{
-30                end = y;
-31            }
-32            farea = belowarea;
-33        }
-34        return start;
-35    }
-36}
+12
+13        for (int i = 0; i < 80; i++) {
+14            double mid = (low + high) / 2.0;
+15            double areaBelow = 0;
+16
+17            for (int[] s : squares) {
+18                double y = s[1], l = s[2];
+19                if (mid <= y) continue;
+20                if (mid >= y + l) areaBelow += l * l;
+21                else areaBelow += l * (mid - y);
+22            }
+23
+24            if (areaBelow * 2 < totalArea)
+25                low = mid;
+26            else
+27                high = mid;
+28        }
+29        return low;
+30    }
+31}
