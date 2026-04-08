@@ -3,7 +3,7 @@
 3        int mod=(int)1e9+7;
 4        for(int[] a:queries){
 5            while(a[0]<=a[1]){
-6                nums[a[0]]=(int)((1l*nums[a[0]]*a[3])%mod);
+6                nums[a[0]]=(int)(((long)nums[a[0]]*a[3])%mod);
 7                a[0]+=a[2];
 8            }
 9        }
