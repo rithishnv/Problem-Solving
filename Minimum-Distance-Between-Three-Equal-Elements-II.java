@@ -12,11 +12,10 @@
 12            if(map.get(i).size()>=3){
 13                List<Integer> li=map.get(i);
 14                for(int j=0;j<=li.size()-3;j++){
-15                    min=Math.min(min,Math.abs(li.get(j)-li.get(j+1))+
-16                    Math.abs(li.get(j+1)-li.get(j+2))+Math.abs(li.get(j+2)-li.get(j)));
-17                }
-18            }
-19        }
-20        return (min==Integer.MAX_VALUE)?-1:min;
-21    }
-22}
+15                    min=Math.min(min,2*Math.abs(li.get(j+2)-li.get(j)));
+16                }
+17            }
+18        }
+19        return (min==Integer.MAX_VALUE)?-1:min;
+20    }
+21}
