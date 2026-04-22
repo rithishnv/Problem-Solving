@@ -12,14 +12,16 @@
 12                    for(int i=0;i<s.length();i++){
 13                        if(s.charAt(i)!=a.charAt(i))
 14                        cnt++;
-15                    }
-16                    if(cnt<=2){
-17                        li.add(s);
-18                        break;
-19                    }
-20                }
-21            }
-22        }
-23        return li;
-24    }
-25}
+15                        if(cnt>2)
+16                        break;
+17                    }
+18                    if(cnt<=2){
+19                        li.add(s);
+20                        break;
+21                    }
+22                }
+23            }
+24        }
+25        return li;
+26    }
+27}
