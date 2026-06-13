@@ -6,9 +6,8 @@
 6            for(char j:i.toCharArray()){
 7                t+=weights[j-'a'];
 8            }
-9            t%=26;
-10            s.append((char)('a'+(26-t-1)));
-11        }
-12        return s.toString();
-13    }
-14}
+9            s.append((char)('z'-(t%26)));
+10        }
+11        return s.toString();
+12    }
+13}
