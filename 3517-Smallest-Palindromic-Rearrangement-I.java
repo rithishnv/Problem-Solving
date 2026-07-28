@@ -11,6 +11,7 @@ class Solution {
             if(arr[i]%2!=0){
                 bt.append(a);
                 arr[i]--;
+                break;
             }
             a++;
         }
@@ -22,13 +23,9 @@ class Solution {
             a++;
         }
         a--;
+        bt.append(sb.reverse());
+        sb.reverse();
         sb.append(bt);
-        for(int i=25;i>-1;i--){
-            for(int j=0;j<arr[i]/2;j++){
-                sb.append(a);
-            }
-            a--;
-        }
         return sb.toString();
     }
 }
