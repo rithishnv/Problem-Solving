@@ -13,10 +13,8 @@ class Solution {
         }
         for(int i=0;i<grid.length;i++){
             for(int j=0;j<grid[0].length;j++){
-                if(grid[i][j]==1){
-                   if(r[i]>1 || c[j]>1)
+                if(grid[i][j]==1 && (r[i]>1 || c[j]>1))
                    a++;
-                }
             }
         }
         return a;
